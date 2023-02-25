@@ -1,9 +1,7 @@
--- OriLua
--- Made By LunarLuzog Aka ShiinaChan#5523
 
 -------------------------------------- Print
 
-print("Successfully Loaded OriLua")
+print("Successfully Loaded ELEKTRO.lua")
 
 -------------------------------------- Auto Update
 
