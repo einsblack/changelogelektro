@@ -8,11 +8,11 @@ print("Successfully Loaded OriLua")
 -------------------------------------- Auto Update
 
 local CURRENTVERSION = "1.4"
-local LATESTVERSION = http.Get("https://raw.githubusercontent.com/LunarLuzogSM/OriLua/master/version.txt")
+local LATESTVERSION = http.Get("https://raw.githubusercontent.com/einsblack/elektrolua/main/version.txt")
 local function Update() 
     if CURRENTVERSION ~= LATESTVERSION then
         currentScript = file.Open(GetScriptName(), "w")
-        currentScript:Write(http.Get("https://raw.githubusercontent.com/LunarLuzogSM/OriLua/master/OriLua.lua"))
+        currentScript:Write(http.Get("https://github.com/einsblack/elektrolua/blob/main/elektro.lua"))
         currentScript:Close()
         LoadScript(GetScriptName())
     end
@@ -20,7 +20,7 @@ end
 
 -------------------------------------- Gui ( ShiinaChan#5523 (Me)
 
-local OriLua_TAB = gui.Tab(gui.Reference("Settings"), "orilua.LL", "OriLua LL")
+local OriLua_TAB = gui.Tab(gui.Reference("Settings"), "orilua.LL", "Elektro.lua")
 local OriLua_LL_UPDATER_GBOX = gui.Groupbox(OriLua_TAB, "Updater", 10, 10, 160, 0) -- Updater-GBOX
 local OriLua_LL_CHANGELOG_GBOX = gui.Groupbox(OriLua_TAB, "Changelog", 190, 10, 290, 0) -- Changelog-GBOX
 local OriLua_LL_VISUALS_GBOX = gui.Groupbox(OriLua_TAB, "Visuals", 10, 190, 470, 0) -- Visuals-GBOX
@@ -34,7 +34,7 @@ local OriLua_LL_RAINBOW_GBOX = gui.Groupbox(OriLua_TAB, "Rainbow", 10, 1142, 470
 local OriLua_LL_CURRENTVERSION = gui.Text(OriLua_LL_UPDATER_GBOX, "Current version: v" .. CURRENTVERSION)
 local OriLua_LL_LATESTVERSION = gui.Text(OriLua_LL_UPDATER_GBOX, "Latest version: v" .. LATESTVERSION)
 local OriLua_LL_UPDATE = gui.Button(OriLua_LL_UPDATER_GBOX, "Update", Update)
-local OriLua_LL_CHANGELOG_TEXT = gui.Text(OriLua_LL_CHANGELOG_GBOX, http.Get("https://raw.githubusercontent.com/LunarLuzogSM/OriLua/master/changelog.txt"))
+local OriLua_LL_CHANGELOG_TEXT = gui.Text(OriLua_LL_CHANGELOG_GBOX, http.Get("https://raw.githubusercontent.com/einsblack/elektrolua/main/changelog"))
 
 -------------------------------------- Checkbox + Sliders / Visuals ( ShiinaChan#5523 (Me)
 
@@ -62,8 +62,8 @@ local OriLua_LL_MISCS_LASTCHOKEDANG = gui.Checkbox(OriLua_LL_MISCS_MULTI, "vis.l
 -------------------------------------- Checkbox + Sliders / Watermark ( ShiinaChan#5523 (Me)
 
 local OriLua_LL_VISUALS_WATERMARK = gui.Checkbox(OriLua_LL_WATERMARK_GBOX, "OriLua_LL_VISUALS_COLOR_WATERMARK_SHOW", "Show Watermark", false );
-local OriLua_LL_VISUALS_COLOR_WATERMARK_CP_AW = gui.ColorPicker(OriLua_LL_WATERMARK_GBOX, "OriLua_LL_VISUALS_COLOR_WATERMARK_S1", "AIMWARE Color", 255, 0, 0, 255)
-local OriLua_LL_VISUALS_COLOR_WATERMARK_CP_NET = gui.ColorPicker(OriLua_LL_WATERMARK_GBOX, "OriLua_LL_VISUALS_COLOR_WATERMARK_S2", ".Net Color", 255, 255, 255, 255)
+local OriLua_LL_VISUALS_COLOR_WATERMARK_CP_AW = gui.ColorPicker(OriLua_LL_WATERMARK_GBOX, "OriLua_LL_VISUALS_COLOR_WATERMARK_S1", "ELEKTRO Color", 255, 0, 0, 255)
+local OriLua_LL_VISUALS_COLOR_WATERMARK_CP_NET = gui.ColorPicker(OriLua_LL_WATERMARK_GBOX, "OriLua_LL_VISUALS_COLOR_WATERMARK_S2", ".lua Color", 255, 255, 255, 255)
 
 -------------------------------------- Checkbox + Sliders / Rainbow ( ShiinaChan#5523 (Me)
 
@@ -154,10 +154,10 @@ if entities.GetLocalPlayer() == nil then
     if OriLua_LL_VISUALS_WATERMARK:GetValue() then
     draw.SetFont(OriLua_LL_VISUALS_WATERMARK_FONT);
     draw.Color(OriLua_LL_VISUALS_COLOR_WATERMARK_CP_AW:GetValue());
-    draw.TextShadow(1700, 20, "AIMWARE");
+    draw.TextShadow(1700, 20, "ELEKTRO");
 	draw.SetFont(OriLua_LL_VISUALS_WATERMARK_FONT);
 	draw.Color(OriLua_LL_VISUALS_COLOR_WATERMARK_CP_NET:GetValue());
-    draw.TextShadow(1840, 20, ".Net");
+    draw.TextShadow(1840, 20, ".lua");
      end
      end
 callbacks.Register("Draw", "OriLua_LL_VISUALS_DRAW_WATERMARK", OriLua_LL_VISUALS_DRAW_WATERMARK);
