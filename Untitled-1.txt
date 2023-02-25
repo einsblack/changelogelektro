@@ -1,0 +1,5 @@
+Changelog:
+
+    • New Stable Release!
+    • Better FPS
+    • V 1.4
